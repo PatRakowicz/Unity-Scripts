@@ -40,4 +40,15 @@ public class PlayerControler : MonoBehaviour {
             WinText.text = "Congrats! You Win!";
 		}
 	}
+	
+//	void OnCOllisionEnter(Collision other) {
+//		if(other.tag == "Death") {
+//			Respawn();
+//		}
+//	}
+	
+	//void Respawn() {
+//		transform.position = Vector3.zero;
+	//}
+	
 }
