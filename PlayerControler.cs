@@ -34,21 +34,19 @@ public class PlayerControler : MonoBehaviour {
 			SetCountText();
 		}
 	}
+	void OnTriggerEnter2(Collider other) {
+		if (other.gameObject.CompareTag ("Pill")) {
+			
+		}
+	}
+	void TransformPos() {
+		transform.position = new Vector3(0,5,0);
+	}
+	
 	void SetCountText() {
         CountText.text = "Count: " + count.ToString ();
         if (count >= 9) {
             WinText.text = "Congrats! You Win!";
 		}
 	}
-	
-//	void OnCOllisionEnter(Collision other) {
-//		if(other.tag == "Death") {
-//			Respawn();
-//		}
-//	}
-	
-	//void Respawn() {
-//		transform.position = Vector3.zero;
-	//}
-	
 }
