@@ -10,37 +10,37 @@ public class PlayerControler : MonoBehaviour {
 	private Rigidbody rb;
 	private int count;
 	
-	
     void Start () {
         rb = GetComponent<Rigidbody>();
 		count = 0;
 		SetCountText();
 		WinText.text = "";
+		Vector3 pos = transform.position;
     }
+	
+	void Update () {
+		Debug.Log (transform.position.x);
+	}
 
     void FixedUpdate () {
         float moveHorizontal = Input.GetAxis ("Horizontal");
         float moveVertical = Input.GetAxis ("Vertical");
 
         Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-
-        rb.AddForce (movement * speed);
+		rb.AddForce (movement * speed);
     }
 	
-	void OnTriggerEnter(Collider other) {
+	void OnTriggerEnter (Collider other) {
 		if (other.gameObject.CompareTag ("PickUp")) {
 			other.gameObject.SetActive (false);
 			count = count + 1;
 			SetCountText();
 		}
 	}
-	void OnTriggerEnter2(Collider other) {
-		if (other.gameObject.CompareTag ("Pill")) {
-			
+	void OnCollisionEnter (Collision collide) {
+		if (collide.gameObject.name == "Cube") {
+			Application.LoadLevel("MiniGame");
 		}
-	}
-	void TransformPos() {
-		transform.position = new Vector3(0,5,0);
 	}
 	
 	void SetCountText() {
