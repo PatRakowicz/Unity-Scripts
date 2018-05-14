@@ -37,8 +37,8 @@ public class PlayerControler : MonoBehaviour {
 			SetCountText();
 		}
 	}
-	void OnCollisionEnter (Collision collide) {
-		if (collide.gameObject.name == "Cube") {
+	void OnCollisionEnter (Collision col) {
+		if (col.gameObject.name == "Cube") {
 			Application.LoadLevel("MiniGame");
 		}
 	}
